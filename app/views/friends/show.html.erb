@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @friend %>
+<div class="d-flex justify-content-between p-5 bg-dark bg-opacity-25 w-75 m-auto rounded">
 
 <div>
-  <%= link_to "Edit this friend", edit_friend_path(@friend) %> |
-  <%= link_to "Back to friends", friends_path %>
+<%= render @friend %>
+</div>
 
-  <%= button_to "Destroy this friend", @friend, method: :delete %>
+<div class="d-flex flex-column justify-content-between">
+  <%= link_to "Edit this friend", edit_friend_path(@friend), class:"btn btn-dark" %>
+  <%= link_to "Back to friends", friends_path, class:"btn btn-dark" %>
+  <%= button_to "Destroy this friend", @friend, method: :delete, class:"btn btn-danger" %>
+</div>
+
 </div>

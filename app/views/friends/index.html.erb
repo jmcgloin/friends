@@ -16,16 +16,16 @@
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
-        <td> <%= friend.first_name %> </td>
-        <td> <%= friend.last_name %> </td>
+        <td> <%= friend.first_name.length > 25 ? "#{friend.first_name[0,21]}..." : friend.first_name %> </td>
+        <td> <%= friend.last_name.length > 25 ? "#{friend.last_name[0,21]}..." : friend.last_name %> </td>
         <td> <%= friend.phone_number %> </td>
         <td> <%= friend.email %> </td>
         <td> <%= friend.twitter %> </td>
         <td>
-          <%= link_to "Show this friend", friend %>
+          <%= link_to "Show this friend", friend, class:"btn btn-dark" %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to "New friend", new_friend_path %>
+<%= link_to "New friend", new_friend_path, class:"btn btn-primary" %>
