@@ -4,8 +4,7 @@
   <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
+      <th scope="col">Name</th>
       <th scope="col">Phone</th>
       <th scope="col">Email</th>
       <th scope="col">Twitter</th>
@@ -14,14 +13,14 @@
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
-        <td> <%= friend.first_name.length > 25 ? "#{friend.first_name[0,21]}..." : friend.first_name %> </td>
-        <td> <%= friend.last_name.length > 25 ? "#{friend.last_name[0,21]}..." : friend.last_name %> </td>
+        <td>
+          <% display_name = "#{friend.first_name} #{friend.last_name}" %>
+          <% display_name = display_name.length > 50 ? "#{display_name[0,46]}..." : display_name %>
+          <%= link_to display_name, friend_path(friend) %>
+        </td>
         <td> <%= friend.phone_number %> </td>
         <td> <%= friend.email %> </td>
         <td> <%= friend.twitter %> </td>
-        <td>
-          <%= link_to "Show this friend", friend, class:"btn btn-dark" %>
-        </td>
       </tr>
     <% end %>
   </tbody>
